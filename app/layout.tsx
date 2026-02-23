@@ -1,18 +1,22 @@
+// app/layout.tsx
+import { Space_Grotesk, Permanent_Marker } from "next/font/google";
 import "./globals.css";
 
-export const metadata = {
-  title: "Barbearia Street",
-  description: "Estilo urbano. Precisão. Identidade.",
-};
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const permanentMarker = Permanent_Marker({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-permanent-marker",
+});
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
-      <body className="bg-background text-textMain antialiased">
+    <html lang="pt-BR" className="dark">
+      <body className={`${spaceGrotesk.variable} ${permanentMarker.variable} antialiased`}>
         {children}
       </body>
     </html>

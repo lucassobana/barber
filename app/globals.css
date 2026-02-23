@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ededed;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Cores do novo design */
+  --color-primary: #d46211;
+  --color-background-dark: #0a0a0a;
+  --color-matte-black: #0f0f0f;
+  --color-matte-grey: #1a1a1a;
+
+  /* Fontes vinculadas às variáveis do Next.js */
+  --font-display: var(--font-space-grotesk);
+  --font-graffiti: var(--font-permanent-marker);
+
+  /* Border Radius customizado */
+  --radius-default: 0.15rem;
+  --radius-lg: 0.3rem;
+  --radius-xl: 0.5rem;
 }
+
+@utility matte-overlay {
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.98));
+}
+
+@utility graffiti-logo {
+  font-family: var(--font-permanent-marker);
+  letter-spacing: -0.05em;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  background: var(--color-background-dark);
+  color: #ededed;
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
